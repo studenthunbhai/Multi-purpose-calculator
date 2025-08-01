@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head> 
+<body>
+    <div class="container">
+        <h1>Multi-purpose Calculator</h1>
+        
+        <div class="menu-container">
+            <button class="hamburger" onclick="toggleMenu()" title="Menu" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div class="calculator-nav">
+                <button onclick="showCalculator('arithmetic'); toggleMenu()">Arithmetic Calculator</button>
+                <button onclick="showCalculator('age'); toggleMenu()">Age Calculator</button>
+                <button onclick="showCalculator('bmi'); toggleMenu()">BMI Calculator</button>
+                <button onclick="showCalculator('currency'); toggleMenu()">Currency Calculator</button>
+            </div>
+        </div>
+
+        <div id="arithmetic-calculator" class="calculator-section">
+            <h2>Arithmetic Calculator</h2>
+            <div class="calc-display">
+                <input type="text" id="display" readonly aria-label="Calculator Display" placeholder="0">
+            </div>
+            <div class="calc-buttons">
+                <button onclick="appendNumber('7')">7</button>
+                <button onclick="appendNumber('8')">8</button>
+                <button onclick="appendNumber('9')">9</button>
+                <button onclick="appendOperator('+')">+</button>
+                <button onclick="appendNumber('4')">4</button>
+                <button onclick="appendNumber('5')">5</button>
+                <button onclick="appendNumber('6')">6</button>
+                <button onclick="appendOperator('-')">-</button>
+                <button onclick="appendNumber('1')">1</button>
+                <button onclick="appendNumber('2')">2</button>
+                <button onclick="appendNumber('3')">3</button>
+                <button onclick="appendOperator('*')">×</button>
+                <button onclick="appendNumber('0')">0</button>
+                <button onclick="appendNumber('.')">.</button>
+                <button onclick="calculate()">=</button>
+                <button onclick="appendOperator('/')">÷</button>
+                <button onclick="clearDisplay()" class="clear">C</button>
+            </div>
+        </div>
+
+        <div id="age-calculator" class="calculator-section">
+            <h2>Age Calculator</h2>
+            <label for="birthDate">Birth Date:</label>
+            <input type="date" id="birthDate" aria-label="Birth Date">
+            <button onclick="calculateAge()">Calculate</button>
+            <div id="age-result" class="result"></div>
+        </div>
+
+        <div id="bmi-calculator" class="calculator-section">
+            <h2>BMI Calculator</h2>
+            <label for="weight">Weight:</label>
+            <input type="number" id="weight" placeholder="Weight (kg)" aria-label="Weight in kilograms">
+            <div class="height-inputs">
+                <div>
+                    <label for="height-ft">Height (ft):</label>
+                    <input type="number" id="height-ft" placeholder="Feet" aria-label="Height in feet">
+                </div>
+                <div>
+                    <label for="height-in">Height (in):</label>
+                    <input type="number" id="height-in" placeholder="Inches" aria-label="Height in inches">
+                </div>
+            </div>
+            <button onclick="calculateBMI()">Calculate BMI</button>
+            <div id="bmi-result" class="result"></div>
+        </div>
+
+        <div id="currency-calculator" class="calculator-section">
+            <h2>Currency Calculator</h2>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" placeholder="Enter amount">
+            <label for="from-currency">From Currency:</label>
+            <select id="from-currency" aria-label="From Currency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+                <option value="INR">INR</option>
+            </select>
+            <label for="to-currency">To Currency:</label>
+            <select id="to-currency" aria-label="To Currency">
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+                <option value="INR">INR</option>
+            </select>
+            <button onclick="convertCurrency()">Calculate</button>
+            <div id="currency-result" class="result"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
